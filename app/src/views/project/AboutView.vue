@@ -56,7 +56,6 @@ export default defineComponent({
     ])
     const toggleMini = () => mini.value = !mini.value;
     const changePage = (val: any): void => {
-      console.log(val);
       router.push(val[0].path) // 进入子路由
       // 点击变色
       menuList.forEach((list: any, idx: number) => {
