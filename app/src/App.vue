@@ -1,8 +1,10 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">iPad</router-link> |
-    <router-link to="/first">First</router-link>
+    <router-link to="/first">First</router-link> |
+    <router-link to="/components">Component</router-link> -->
+    <router-link to="/grand-parent">testPage</router-link>
   </nav>
   <router-view/>
 </template>

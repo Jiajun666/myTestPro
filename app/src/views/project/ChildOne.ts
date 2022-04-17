@@ -1,6 +1,5 @@
 interface Student {
-    name: string,
-    say: () => {}
+    name: string
 }
 
 const handleClick = (): boolean => {

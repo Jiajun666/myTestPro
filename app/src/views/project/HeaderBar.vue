@@ -6,7 +6,7 @@
         </div>
         <div class="header-right">
             <div class="title">
-                <span>{{ fullName }}</span>
+                <span>{{ title }}</span>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@ export default defineComponent({
             type: Boolean,
             default: () => false
         },
-        fullName: {
+        title: {
             type: String,
             default: () => ''
         }

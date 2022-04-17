@@ -29,6 +29,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/first',
     name: 'first',
     component: () => import('../views/FirstView.vue')
+  },
+  {
+    path: '/components',
+    name: 'components',
+    component: () => import('../views/project/ComponentTest.vue')
+  },
+  {
+    path: '/grand-parent',
+    name: 'GrandParent',
+    component: () => import('../views/test/GrandParent.vue')
   }
 ]
 

@@ -34,8 +34,10 @@
 </template>
 <script lang="ts">
 import router from '@/router'
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref, inject, toRefs, onMounted } from 'vue'
+import { eventBus, eventBusEnmu } from '@/bus'
 export default defineComponent({
+    name: 'AsideMenu',
     props: {
         mini: {
             type: Boolean,
@@ -58,6 +60,13 @@ export default defineComponent({
             let nameArr = prop.fullName.split(' ')
             return nameArr.length === 1 ? nameArr[0].slice(0, 1) : nameArr[0].slice(0, 1) + nameArr[1].slice(0, 1)
         })
+        let list = ref([] as any[])
+        eventBus.on(eventBusEnmu.list, obj => {
+            onMounted(() => {
+                list.value = obj as Array<string>
+                console.log(list.value)
+            })
+        })
         interface menuListObj {
             iconPre: string,
             iconAcPre: string,
@@ -67,13 +76,15 @@ export default defineComponent({
             iconAcAf: string,
             path: string
         }
+        // const list = inject('car')
+        // console.log(list)
         const clickItem = (item: menuListObj, index: number): void => {
             current.value = index
             const params = [item, index]
             emit('select-item', params)
             // emit('select-item', item, index)
             /* prop.menuList.forEach((list: any, idx: number) => {
-                list.isActived = idx === index ? true : false
+                list.isActived = idx === index
             }) */
         }
         return {

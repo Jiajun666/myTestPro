@@ -23,11 +23,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, Ref, ref, reactive } from 'vue'
+import { defineComponent, Ref, ref, reactive, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import HeaderBar from '@/views/project/HeaderBar.vue'
 import AsideMenu from '@/views/project/AsideMenu.vue'
 export default defineComponent({
+  name: 'AboutView',
   components: {
     HeaderBar,
     AsideMenu
@@ -54,6 +55,8 @@ export default defineComponent({
       {iconPre: 'icon-c.png', iconAcPre: 'icon-sc.png', isActived: false, text: 'eightOnea', iconAfter: 'icon-d.png', iconAcAf: 'icon-sd.png', path: '/childOne'},
       {iconPre: 'icon-e.png', iconAcPre: 'icon-se.png', isActived: false, text: 'tenOnea', iconAfter: 'icon-f.png', iconAcAf: 'icon-sf.png', path: '/childOne'}
     ])
+    // const list = inject('car')
+    // console.log(list)
     const toggleMini = () => mini.value = !mini.value;
     const changePage = (val: any): void => {
       router.push(val[0].path) // 进入子路由
